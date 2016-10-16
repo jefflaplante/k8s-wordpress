@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wp-pv-claim
+  labels:
+    app: wordpress
+    type: gluster
+spec:
+  accessModes:
+    - ReadWriteMany
+  selector:
+    matchLabels:
+      type: gluster
+      app: wordpress
+  resources:
+    requests:
+      storage: 2Gi
